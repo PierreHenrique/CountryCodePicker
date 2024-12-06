@@ -200,7 +200,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
                         ? selectedItem!.toCountryStringOnly()
                         : selectedItem.toString(),
                     style:
-                        widget.textStyle ?? Theme.of(context).textTheme.button,
+                        widget.textStyle,
                     overflow: widget.textOverflow,
                   ),
                 ),
@@ -273,7 +273,7 @@ class CountryCodePickerState extends State<CountryCodePicker> {
 
     favoriteElements = elements
         .where((e) =>
-            widget.favorite.firstWhereOrNull((f) =>
+            widget.favorite.firstWhere((f) =>
                 e.code!.toUpperCase() == f.toUpperCase() ||
                 e.dialCode == f ||
                 e.name!.toUpperCase() == f.toUpperCase()) !=

@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:country_code_picker/country_codes.dart';
 import 'package:country_code_picker/country_localizations.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,14 +34,14 @@ class CountryCode {
   }
 
   factory CountryCode.fromCountryCode(String countryCode) {
-    final Map<String, String>? jsonCode = codes.firstWhereOrNull(
+    final Map<String, String>? jsonCode = codes.firstWhere(
       (code) => code['code'] == countryCode,
     );
     return CountryCode.fromJson(jsonCode!);
   }
 
   factory CountryCode.fromDialCode(String dialCode) {
-    final Map<String, String>? jsonCode = codes.firstWhereOrNull(
+    final Map<String, String>? jsonCode = codes.firstWhere(
       (code) => code['dial_code'] == dialCode,
     );
     return CountryCode.fromJson(jsonCode!);
